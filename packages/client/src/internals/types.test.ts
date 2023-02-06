@@ -63,4 +63,18 @@ describe('integrate', () => {
       signal: {} as AbortSignalEsque,
     });
   });
+
+  test('pass AbortSignalEsque to node-fetch', () => {
+    const myFetch = {} as typeof nodeFetch;
+    myFetch('', {
+      signal: {} as AbortSignalEsque,
+    });
+  });
+
+  test('pass AbortSignalEsque to isomorphic-fetch', () => {
+    const myFetch = {} as typeof isomorphicFetch;
+    myFetch('', {
+      signal: {} as AbortSignalEsque,
+    });
+  });
 });
