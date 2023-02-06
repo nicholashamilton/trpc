@@ -7,6 +7,7 @@ import { getAbortController } from './fetchHelpers';
 import {
   AbortControllerEsque,
   AbortControllerInstanceEsque,
+  AbortSignalEsque,
   FetchEsque,
   ResponseEsque,
 } from './types';
@@ -52,5 +53,14 @@ describe('fetch', () => {
     // ReferenceError: TextEncoder is not defined
     // 🤷
     getFetch({} as unknown as typeof undiciFetch);
+  });
+});
+
+describe('integrate', () => {
+  test('pass AbortSignalEsque to undiciFetch', () => {
+    const myFetch = {} as typeof undiciFetch;
+    myFetch('', {
+      signal: {} as AbortSignalEsque,
+    });
   });
 });
